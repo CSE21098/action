@@ -34,8 +34,10 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Get Code
-        uses: actions/checkout@v3
+      - name: Get artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: artifact-files
       - name: Deploy
         run: echo "${{ github }}"
 
