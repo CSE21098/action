@@ -29,7 +29,9 @@ jobs:
         run: npm run build
       - name: Publish JS filename
         id: publish
-        run: find src/test/*.js -type f -execdir echo 'scripted={}' >> $GITHUB_OUTPUT ';'
+        run: |
+          FILE=$(ls src/test/*.js | head -n 1)
+          echo "scripted=$FILE" >>  $GITHUB_OUTPUT ';'
       - name: Saving artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -48,5 +50,6 @@ jobs:
       - name: Output filename
         run: echo "${{ needs.build.output.script-file }}"
       - name: Deploy
-        run: echo "${{ github }}"
+        run: echo "${{ github.repository }}"
+
 
