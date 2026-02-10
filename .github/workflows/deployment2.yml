@@ -1,5 +1,6 @@
 name: First Operation
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
