@@ -2,7 +2,7 @@ name: First Operation
 on:
   push:
     branches:
-        - main
+      - main
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -18,7 +18,7 @@ jobs:
       - name: Run tests
         run: npm test
   deploy:
-        run: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Get Code
         uses: actions/checkout@v3
@@ -32,3 +32,4 @@ jobs:
         run: npm run build
       - name: Deploy
         run: echo "Deploying..."
+
