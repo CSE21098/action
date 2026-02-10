@@ -15,6 +15,13 @@ jobs:
         run: npm run lint
       - name: Run tests
         run: npm test
+      - name: Saving artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifact files
+          path: |
+            artifacts
+            cached
   build:
     needs: test
     runs-on: ubuntu-latest
@@ -30,5 +37,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
-        run: echo "${{ github.event }}"
+        run: echo "${{ github }}"
 
